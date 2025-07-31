@@ -34,20 +34,23 @@ endif
 
 
 
+
 LIBDIR := ./lib
+SRCDIR := ./src
+PRGDIR := ./prog
 LIB := $(LIBDIR)/lib$(shell basename $(CURDIR)).so
-OBJS := $(patsubst %.cc, %.o, $(wildcard *.cc))
-OBJS += $(patsubst %LinkDef.h, %Dict.o, $(wildcard *LinkDef.h))
-EXE = $(patsubst %.cxx, %, $(wildcard *.cxx))
+OBJS := $(patsubst $(SRCDIR)/%.cc, $(SRCDIR)/%.o, $(wildcard $(SRCDIR)/*.cc))
+OBJS += $(patsubst $(SRCDIR)/%LinkDef.h, $(SRCDIR)/%Dict.o, $(wildcard $(SRCDIR)/*LinkDef.h))
+EXE = $(patsubst $(PRGDIR)/%.cxx, %, $(wildcard $(PRGDIR)/*.cxx))
 
 all: depend $(LIB) $(EXE)
 
 depend: Make-depend
 
-%.o : %.cc
+$(SRCDIR)/%.o : $(SRCDIR)/%.cc
 	$(CXX) -c $(CXXFLAGS) $(CPPFLAGS) $< -o $@
 
-%Dict.cc: $(shell grep -l ClassDef *.h) %LinkDef.h
+$(SRCDIR)/%Dict.cc: $(shell grep -l ClassDef $(SRCDIR)/*.h) $(SRCDIR)/%LinkDef.h
 	@(echo generating $@ dictionary)
 	($(CLING) -f $@ -c $(CPPFLAGS) $^)
 	@mkdir -p $(LIBDIR)
@@ -60,7 +63,7 @@ $(LIB): $(OBJS)
 test: testGalMC
 	./testGalMC --log_level=test_suite
 
-%: %.cxx $(LIB)
+%: $(PRGDIR)/%.cxx $(LIB)
 	$(CXX) -o $@ $^ $(CXXFLAGS) $(CPPFLAGS) $(LDFLAGS) -L$(LIBDIR) -lGalMC -lD2MW -lboost_unit_test_framework
 
 Make-depend: $(wildcard *.h)
