@@ -9,6 +9,11 @@ Example output:
 
 - `galtoolslib` from [GALPROP](https://galprop.stanford.edu/code.php) for nuclear cross sections
 - `D2MW` from [DRAGON](https://codedocs.xyz/cosmicrays/D2MW/) for MW gas densities
+- `RUQI` framework for magnetic field models
+
+## TODO
+
+- remove all dependencies but galtoolslib
 
 ## License
 
