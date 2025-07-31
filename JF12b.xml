@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RUQI>
+
+  <MagneticField>
+    <Model name = "JF12Disk" type="coherent">
+      <parameter name="bArm1" value="0.12255" unit="microgauss"/>
+      <parameter name="bArm2" value="3.01188" unit="microgauss"/>
+      <parameter name="bArm3" value="-0.9169" unit="microgauss"/>
+      <parameter name="bArm4" value="-0.8079" unit="microgauss"/>
+      <parameter name="bArm5" value="-1.9693" unit="microgauss"/>
+      <parameter name="bArm6" value="-4.18792" unit="microgauss"/>
+      <parameter name="bArm7" value="-0.033" unit="microgauss"/>
+      <parameter name="bRing" value="0.10996" unit="microgauss"/>
+      <parameter name="hDisk" value="0.39504" unit="kpc"/>
+      <parameter name="wDisk" value="0.27378" unit="kpc"/>
+    </Model>
+
+    <Model name = "JF12Toroidal" type="coherent">
+      <parameter name="Bn" value="1.4097" unit="microgauss"/>
+      <parameter name="Bs" value="-1.1115" unit="microgauss"/>
+      <parameter name="rn" value="9.2211" unit="kpc"/>
+      <parameter name="rs" value="17.4859" unit="kpc"/>
+      <parameter name="wh" value="0.19742" unit="kpc"/>
+      <parameter name="z0" value="5.2836" unit="kpc"/>
+      <parameter name="hDisk" value="0.39504" unit="kpc"/>
+      <parameter name="wDisk" value="0.27378" unit="kpc"/>
+    </Model>
+
+    <Model name = "JF12Xfield" type="coherent">
+      <parameter name="b0X" value="4.5594" unit="microgauss"/>
+      <parameter name="theta" value="48.7041" unit="degree"/>
+      <parameter name="rC" value="4.802357" unit="kpc"/>
+      <parameter name="rX" value="2.904688" unit="kpc"/>
+      <parameter name="rhoGC" value="0" unit="kpc"/>
+    </Model>
+
+    <Model name = "JF12Random" type="randomAverage">
+      <parameter name="bArm1" value="3.12" unit="microgauss"/>
+      <parameter name="bArm2" value="6.24" unit="microgauss"/>
+      <parameter name="bArm3" value="3.12" unit="microgauss"/>
+      <parameter name="bArm4" value="6.24" unit="microgauss"/>
+      <parameter name="bArm5" value="3.12" unit="microgauss"/>
+      <parameter name="bArm6" value="6.24" unit="microgauss"/>
+      <parameter name="bArm7" value="3.12" unit="microgauss"/>
+      <parameter name="bArm8" value="6.24" unit="microgauss"/>
+      <parameter name="bRing" value="3.9" unit="microgauss"/>
+      <parameter name="z0Disk" value="0.61" unit="kpc"/>
+      <parameter name="b0Halo" value="7.332" unit="microgauss"/>
+      <parameter name="r0Halo" value="10.97" unit="kpc"/>
+      <parameter name="z0Halo" value="2.84" unit="kpc"/>
+    </Model>
+
+  </MagneticField>
+
+  <ISM>
+    <Model name = "ConstantISM">
+      <parameter name="neBCorrelation" value="0" unit="none"/>
+      <parameter name="striation" value="2.41578" unit="none"/>
+    </Model>
+  </ISM>
+
+</RUQI>
